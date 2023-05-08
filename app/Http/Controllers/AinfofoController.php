@@ -108,9 +108,15 @@ class AinfofoController extends Controller {
         $voiraussi = DB::Select("select * from article where idarticle in (
             select article.idarticle FROM article JOIN articlecategorie ON articlecategorie.idarticle = article.idarticle where articlecategorie.idcategorie in
           (select idcategorie from articlecategorie where idarticle=".$idarticle.")
-          ) and idarticle!=".$idarticle);
+          ) and idarticle!=".$idarticle." limit 5");
+          $listnow = array();
+            foreach($voiraussi as $voirart){
+                $vaa = new Varticlecategorie();
+                $vaa->setArticle($voirart);
+                $listnow[] = $vaa;
+            }     
         // $key='fiche-'.$idarticle;
-        $view=view('/FO/Article',['article' => $va,'listcategorie'=>$listcategorie, 'voiraussi'=>$voiraussi])->render();
+        $view=view('/FO/Article',['article' => $va,'listcategorie'=>$listcategorie, 'voiraussi'=>$listnow])->render();
         // if(!Cache::has($key)){
         //     Cache::put($key,$view);
         // }        

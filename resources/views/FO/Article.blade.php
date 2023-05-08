@@ -43,18 +43,21 @@
                     </div>
                     <div class="row">
                         @foreach($voiraussi as $voir)
+                        <?php $art1 = $voir->article ?>
                         <div class="col-md-4">
                             <div class="post post-sm">
-                                <a class="post-img" href="blog-post.html"><img src="img/post-4.jpg" alt=""></a>
+                                <a class="post-img" href="/article-{{$art1->idarticle}}/{{Str::slug($art1->titre) }}"><img src="data:image/png;base64,{{$art1->image}}" alt=""></a>
                                 <div class="post-body">
                                     <div class="post-category">
-                                        <a href="category.html">Health</a>
+                                        @foreach($voir->getListcategorie() as $catego)
+                                            <a href="/categorie-{{$catego->idcategorie}}/{{Str::slug($catego->categorie) }}">{{$catego->categorie}}</a>
+                                        @endforeach
                                     </div>
-                                    <h3 class="post-title title-sm"><a href="blog-post.html">Postea senserit id eos,
-                                            vivendo periculis ei qui</a></h3>
+                                    <h3 class="post-title title-sm"><a href="/article-{{$art1->idarticle}}/{{Str::slug($art1->titre) }}">
+                                        {{$art1->titre}}</a></h3>
                                     <ul class="post-meta">
-                                        <li><a href="author.html">John Doe</a></li>
-                                        <li>20 April 2018</li>
+                                        <?php $dat = \Carbon\Carbon::parse($art->datepublication)->format('Y-m-d'); ?>
+                                        <li>{{$dat}}</li>
                                     </ul>
                                 </div>
                             </div>
