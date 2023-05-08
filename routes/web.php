@@ -8,7 +8,7 @@ use App\Models\MymeType;
 
 /*
 |--------------------------------------------------------------------------
-| Web Route
+| Web Routes
 |--------------------------------------------------------------------------
 |
 | Here is where you can register web routes for your application. These
@@ -16,11 +16,17 @@ use App\Models\MymeType;
 | contains the "web" middleware group. Now create something great!
 |
 */
+// Route::middleware('cache.headers:public;max_age=3600;etag')->group(function () {
+//     Route::get('/assets/{any}', function ($mylink) {
+//         $path =$mylink
+//         // $path=str_replace('/','\\',$path);
+//         if (File::exists($path)) {
 
 Route::middleware('cache.headers:public;max_age=3600;etag')->group(function () {
-    Route::get('/assetsFO/{any}', function (Request $request) {
-        $path = '/vendor/' . $request->path();
-        $path=str_replace('/','\\',$path);
+    Route::get('/assetsFO/{any}', function ($mylink) {
+        // $path = '/vendor/' . $request->path();
+        $path = $mylink;
+        //$path=str_replace('/','\\',$path);
         if (File::exists(public_path($path))) {
             $contentType=(new MymeType())->mime_type($path);
             $response = new Illuminate\Http\Response(File::get(public_path($path)), 200);
@@ -30,9 +36,10 @@ Route::middleware('cache.headers:public;max_age=3600;etag')->group(function () {
             abort(404);
         }
     })->where('any', '.*');
-    Route::get('/ckeditor/{any}', function (Request $request) {
-        $path = '/vendor/' . $request->path();
-        $path=str_replace('/','\\',$path);
+    Route::get('/ckeditor/{any}', function ($mylink) {
+        // $path = '/vendor/' . $request->path();
+        // $path=str_replace('/','\\',$path);
+
         if (File::exists(public_path($path))) {
             $contentType=(new MymeType())->mime_type($path);
             $response = new Illuminate\Http\Response(File::get(public_path($path)), 200);
