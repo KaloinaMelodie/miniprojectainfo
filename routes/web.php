@@ -31,7 +31,7 @@ Route::middleware('cache.headers:public;max_age=3600;etag')->group(function () {
         }
     })->where('any', '.*');
     Route::get('/ckeditor/{any}', function (Request $request) {
-        $path = 'vendor/' . $request->path();
+        $path = '/vendor/' . $request->path();
         $path=str_replace('/','\\',$path);
         if (File::exists(public_path($path))) {
             $contentType=(new MymeType())->mime_type($path);
