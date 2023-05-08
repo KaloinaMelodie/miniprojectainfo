@@ -13,7 +13,7 @@
             <?php $art = $articlecate->article?>
             <div class="col-md-4">
                 <div class="post">
-                    <a class="post-img" href="/article-{{$art->idarticle}}/{{Str::slug($art->titre) }}"><img src="data:image/png;base64,{{$art->image}}" alt="" </a>
+                    <a class="post-img" href="/article-{{$art->idarticle}}/{{Str::slug($art->titre) }}" title="About"><img src="data:image/png;base64,{{$art->image}}" width="300" height="150" alt="" </a>
                     <div class="post-body">
                         <div class="post-category">
                             @foreach($articlecate->getListcategorie() as $catego)
@@ -61,8 +61,8 @@
         <div class="row">
 
             <div class="col-md-12 section-row text-center">
-                <a href="#" style="display: inline-block;margin: auto;">
-                    <img class="img-responsive" src="assetsFO/img/Banner-728x90.png" alt="">
+                <a href="#" style="display: inline-block;margin: auto;" title="Pub">
+                    <img class="img-responsive" src="{{asset('assetsFO/img/Banner-728x90.png')}}" width="728px" height="70px" alt="">
                 </a>
             </div>
 
@@ -95,14 +95,14 @@
                     <?php $art = $articlecate->article?>
                     <div class="col-md-4">
                         <div class="post post-sm">
-                            <a class="post-img" href="/article-{{$art->idarticle}}/{{Str::slug($art->titre) }}"><img src="data:image/png;base64,{{$art->image}}" alt="" ></a>
+                            <a class="post-img" href="/article-{{$art->idarticle}}/{{Str::slug($art->titre) }}" title="About"><img src="data:image/png;base64,{{$art->image}}" width="200" height="100" alt="" ></a>
                             <div class="post-body">
                                 <div class="post-category">
                                     @foreach($articlecate->getListcategorie() as $catego)
-                                        <a href="/categorie-{{$catego->idcategorie}}/{{Str::slug($catego->categorie) }}">{{$catego->categorie}}</a>
+                                        <a href="/categorie-{{$catego->idcategorie}}/{{Str::slug($catego->categorie) }}" title="Categorie">{{$catego->categorie}} </a>
                                     @endforeach
                                 </div>
-                                <h3 class="post-title title-sm"><a href="/article-{{$art->idarticle}}/{{Str::slug($art->titre) }}">
+                                <h3 class="post-title title-sm"><a href="/article-{{$art->idarticle}}/{{Str::slug($art->titre) }} " title="Title">
                                     </a>{{$art->titre}}</h3>
                                 <ul class="post-meta">
                                     <?php $dat = \Carbon\Carbon::parse($art->datepublication)->format('Y-m-d'); ?>
@@ -116,7 +116,7 @@
                     
                 </div>
                 <div class="section-row loadmore text-center">
-                    <a href="/categorie-{{$categorie->idcategorie}}/{{Str::slug($categorie->categorie) }}" class="primary-button">Load More</a>
+                    <a href="/categorie-{{$categorie->idcategorie}}/{{Str::slug($categorie->categorie) }}" title="More" class="primary-button">Load More</a>
                 </div>
                 @endforeach
 
@@ -124,8 +124,8 @@
             <div class="col-md-4">
 
                 <div class="aside-widget text-center">
-                    <a href="#" style="display: inline-block;margin: auto;">
-                        <img class="img-responsive" src="assetsFO/img/Banner-300x250.jpg" alt="">
+                    <a href="#" title="Pub" style="display: inline-block;margin: auto;">
+                        <img class="img-responsive" src="{{asset('assetsFO/img/Banner-300x250.jpg')}}" width="300" height="250" alt="">
                     </a>
                 </div>
 
@@ -138,7 +138,7 @@
                     <div class="category-widget">
                         <ul>
                             @foreach($listcategorie as $catego)
-                            <li><a href="/categorie-{{$catego->idcategorie}}/{{Str::slug($catego->categorie) }}">{{$catego->categorie}}</a></li>
+                            <li><a href="/categorie-{{$catego->idcategorie}}/{{Str::slug($catego->categorie) }}" title="Categorie">{{$catego->categorie}}</a></li>
                             @endforeach
                         </ul>
                     </div>

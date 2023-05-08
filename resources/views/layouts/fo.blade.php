@@ -38,12 +38,12 @@
             <div id="nav-top">
                 <div class="container">
                     <div class="nav-logo">
-                        <a href="index-2.html" class="logo"><img src="{{asset('assetsFO/img/logo.png')}}" alt=""></a>
+                        <a href="#" title="Ainfo" class="logo"><img src="{{asset('assetsFO/img/logo.png')}}" width="200px" height="100px" alt=""></a>
                     </div>
 
 
                     <div class="nav-btns">
-                        <button class="aside-btn"><i class="fa fa-bars"></i></button>
+                        <button class="aside-btn" aria-label="Menu"><i class="fa fa-bars"></i></button>
                         <!-- <button class="search-btn"><i class="fa fa-search"></i></button> -->
                         <!-- <div id="nav-search">
                             <form>
@@ -111,7 +111,7 @@
                 <div class="footer-widget">
                     <div class="col-md-6">
                         <div class="footer-logo">
-                            <a href="#" class="logo"><img src="{{asset('assetsFO/img/logo-alt.png')}}" alt="" height="200"
+                            <a href="#" class="logo" title="Ainfo"><img src="{{asset('assetsFO/img/logo-alt.png')}}" alt="" height="200"
                                     width="300"></a>
                         </div>
                     </div>

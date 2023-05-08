@@ -17,11 +17,11 @@
                 <div class="section-row">
                     <div class="post-category">
                         @foreach($articlecate->getListcategorie() as $catego)
-                                <a href="/categorie-{{$catego->idcategorie}}/{{Str::slug($catego->categorie) }}">{{$catego->categorie}}</a>
+                                <a href="/categorie-{{$catego->idcategorie}}/{{Str::slug($catego->categorie) }}" title="Categorie">{{$catego->categorie}}</a>
                             @endforeach
                     </div>
                     <h1>{{$art->titre}}</h1>
-                    <img src="data:image/png;base64,{{$art->image}}" alt="" >
+                    <img src="data:image/png;base64,{{$art->image}}" width="690" height="348px" alt="" >
                     <ul class="post-meta">
                         <?php $dat = \Carbon\Carbon::parse($art->datepublication)->format('Y-m-d'); ?>
                         <li>{{$dat}}</li>
@@ -46,14 +46,14 @@
                         <?php $art1 = $voir->article ?>
                         <div class="col-md-4">
                             <div class="post post-sm">
-                                <a class="post-img" href="/article-{{$art1->idarticle}}/{{Str::slug($art1->titre) }}"><img src="data:image/png;base64,{{$art1->image}}" alt=""></a>
+                                <a class="post-img" href="/article-{{$art1->idarticle}}/{{Str::slug($art1->titre) }}" title="About"><img src="data:image/png;base64,{{$art1->image}}" width="200" height="100" alt=""></a>
                                 <div class="post-body">
                                     <div class="post-category">
                                         @foreach($voir->getListcategorie() as $catego)
-                                            <a href="/categorie-{{$catego->idcategorie}}/{{Str::slug($catego->categorie) }}">{{$catego->categorie}}</a>
+                                            <a href="/categorie-{{$catego->idcategorie}}/{{Str::slug($catego->categorie) }}" title="Categorie">{{$catego->categorie}}</a>
                                         @endforeach
                                     </div>
-                                    <h3 class="post-title title-sm"><a href="/article-{{$art1->idarticle}}/{{Str::slug($art1->titre) }}">
+                                    <h3 class="post-title title-sm"><a href="/article-{{$art1->idarticle}}/{{Str::slug($art1->titre) }}" title="Titre">
                                         {{$art1->titre}}</a></h3>
                                     <ul class="post-meta">
                                         <?php $dat = \Carbon\Carbon::parse($art->datepublication)->format('Y-m-d'); ?>
@@ -72,8 +72,8 @@
 
             <div class="col-md-4">
                 <div class="aside-widget text-center">
-                    <a href="#" style="display: inline-block;margin: auto;">
-                        <img class="img-responsive" src="{{asset('assetsFO/img/Banner-300x250.jpg')}}" alt="">
+                    <a href="#" title="Pub" style="display: inline-block;margin: auto;">
+                        <img class="img-responsive" src="{{asset('assetsFO/img/Banner-300x250.jpg')}}" width="300" height="250" alt="">
                     </a>
                 </div>
                 <div class="aside-widget">
@@ -83,7 +83,7 @@
                     <div class="category-widget">
                         <ul>
                             @foreach($listcategorie as $catego)
-                            <li><a href="/categorie-{{$catego->idcategorie}}/{{Str::slug($catego->categorie) }}">{{$catego->categorie}}</a></li>
+                            <li><a href="/categorie-{{$catego->idcategorie}}/{{Str::slug($catego->categorie) }}" title="Categorie">{{$catego->categorie}}</a></li>
                             @endforeach
                         </ul>
                     </div>

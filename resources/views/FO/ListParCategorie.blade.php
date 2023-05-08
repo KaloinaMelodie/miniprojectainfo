@@ -27,14 +27,14 @@
                 @foreach($listarticlecate as $articlecate)
                     <?php $art = $articlecate->article?>
                 <div class="post post-row">
-                    <a class="post-img" href="/article-{{$art->idarticle}}/{{Str::slug($art->titre) }}"><img src="data:image/png;base64,{{$art->image}}" alt="" ></a>
+                    <a class="post-img" href="/article-{{$art->idarticle}}/{{Str::slug($art->titre) }}" title="About"><img src="data:image/png;base64,{{$art->image}}" width="300" height="150" alt="" ></a>
                     <div class="post-body">
                         <div class="post-category">
                             @foreach($articlecate->getListcategorie() as $catego)
-                                <a href="/categorie-{{$catego->idcategorie}}/{{Str::slug($catego->categorie) }}">{{$catego->categorie}}</a>
+                                <a href="/categorie-{{$catego->idcategorie}}/{{Str::slug($catego->categorie) }}" title="Categorie">{{$catego->categorie}}</a>
                             @endforeach
                         </div>
-                        <h3 class="post-title"><a href="/article-{{$art->idarticle}}/{{Str::slug($art->titre) }}">
+                        <h3 class="post-title"><a href="/article-{{$art->idarticle}}/{{Str::slug($art->titre) }}" title="About">
                             {{$art->titre}}</a></h3>
                         <ul class="post-meta">
                             <?php $dat = \Carbon\Carbon::parse($art->datepublication)->format('Y-m-d'); ?>
@@ -55,8 +55,8 @@
             <div class="col-md-4">
 
                 <div class="aside-widget text-center">
-                    <a href="#" style="display: inline-block;margin: auto;">
-                        <img class="img-responsive" src="{{asset('assetsFO/img/Banner-300x250.jpg')}}" alt="">
+                    <a href="#" title="Pub" style="display: inline-block;margin: auto;">
+                        <img class="img-responsive" src="{{asset('assetsFO/img/Banner-300x250.jpg')}}" width="300" height="250" alt="">
                     </a>
                 </div>
 
@@ -71,7 +71,7 @@
                     <div class="category-widget">
                         <ul>
                             @foreach($listcategorie as $catego)
-                            <li><a href="/categorie-{{$catego->idcategorie}}/{{Str::slug($catego->categorie) }}">{{$catego->categorie}}</a></li>
+                            <li><a href="/categorie-{{$catego->idcategorie}}/{{Str::slug($catego->categorie) }}" title="Categorie">{{$catego->categorie}}</a></li>
                             @endforeach
                         </ul>
                     </div>
@@ -80,7 +80,7 @@
 
                 <div class="aside-widget text-center">
                     <a href="#" style="display: inline-block;margin: auto;">
-                        <img class="img-responsive" src="{{asset('assetsFO/img/Banner-300x600.jpg')}}" alt="">
+                        <img class="img-responsive" src="{{asset('assetsFO/img/Banner-300x600.jpg')}}" width="300px" height="600px" alt="">
                     </a>
                 </div>
 
