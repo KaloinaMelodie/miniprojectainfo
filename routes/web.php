@@ -24,7 +24,7 @@ use App\Models\MymeType;
 
 Route::middleware('cache.headers:public;max_age=3600;etag')->group(function () {
     Route::get('/assetsFO/{any}', function ($mylink) {
-        $path = 'vendor/' . $mylink;
+        $path = 'vendor/assetsFO/' . $mylink;
         echo $path;
         // $path = $mylink;
         //$path=str_replace('/','\\',$path);
