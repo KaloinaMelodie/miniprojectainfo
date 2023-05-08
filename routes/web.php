@@ -24,31 +24,32 @@ use App\Models\MymeType;
 
 Route::middleware('cache.headers:public;max_age=3600;etag')->group(function () {
     Route::get('/assetsFO/{any}', function ($mylink) {
-        // $path = '/vendor/' . $request->path();
-        $path = $mylink;
+        $path = 'vendor/' . $mylink;
+        echo $path;
+        // $path = $mylink;
         //$path=str_replace('/','\\',$path);
-        if (File::exists(public_path($path))) {
+        if (File::exists($path)) {
             $contentType=(new MymeType())->mime_type($path);
-            $response = new Illuminate\Http\Response(File::get(public_path($path)), 200);
+            $response = new Illuminate\Http\Response(File::get($path), 200);
             $response->header('Content-Type', $contentType);
             return $response;
         } else {
             abort(404);
         }
     })->where('any', '.*');
-    Route::get('/ckeditor/{any}', function ($mylink) {
-        // $path = '/vendor/' . $request->path();
-        // $path=str_replace('/','\\',$path);
+    // Route::get('/ckeditor/{any}', function ($mylink) {
+    //     // $path = '/vendor/' . $request->path();
+    //     // $path=str_replace('/','\\',$path);
 
-        if (File::exists(public_path($path))) {
-            $contentType=(new MymeType())->mime_type($path);
-            $response = new Illuminate\Http\Response(File::get(public_path($path)), 200);
-            $response->header('Content-Type', $contentType);
-            return $response;
-        } else {
-            abort(404);
-        }
-    })->where('any', '.*');
+    //     if (File::exists(public_path($path))) {
+    //         $contentType=(new MymeType())->mime_type($path);
+    //         $response = new Illuminate\Http\Response(File::get(public_path($path)), 200);
+    //         $response->header('Content-Type', $contentType);
+    //         return $response;
+    //     } else {
+    //         abort(404);
+    //     }
+    // })->where('any', '.*');
     
 });
 // Route::get('/', function () {
