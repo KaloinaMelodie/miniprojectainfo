@@ -62,7 +62,7 @@
 
             <div class="col-md-12 section-row text-center">
                 <a href="#" style="display: inline-block;margin: auto;" title="Pub">
-                    <img class="img-responsive" src="{{asset('assetsFO/img/Banner-728x90.png')}}" width="728px" height="70px" alt="">
+                    <img class="img-responsive" src="{{asset('vendor/assetsFO/img/Banner-728x90.png')}}" width="728px" height="70px" alt="">
                 </a>
             </div>
 
@@ -125,7 +125,7 @@
 
                 <div class="aside-widget text-center">
                     <a href="#" title="Pub" style="display: inline-block;margin: auto;">
-                        <img class="img-responsive" src="{{asset('assetsFO/img/Banner-300x250.jpg')}}" width="300" height="250" alt="">
+                        <img class="img-responsive" src="{{asset('vendor/assetsFO/img/Banner-300x250.jpg')}}" width="300" height="250" alt="">
                     </a>
                 </div>
 

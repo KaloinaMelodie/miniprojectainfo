@@ -73,7 +73,7 @@
             <div class="col-md-4">
                 <div class="aside-widget text-center">
                     <a href="#" title="Pub" style="display: inline-block;margin: auto;">
-                        <img class="img-responsive" src="{{asset('assetsFO/img/Banner-300x250.jpg')}}" width="300" height="250" alt="">
+                        <img class="img-responsive" src="{{asset('vendor/assetsFO/img/Banner-300x250.jpg')}}" width="300" height="250" alt="">
                     </a>
                 </div>
                 <div class="aside-widget">

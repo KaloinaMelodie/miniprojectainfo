@@ -7,12 +7,18 @@ use App\Models\Categorie;
 use App\Models\Article;
 use App\Models\Articlecategorie;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Cache;
 
 class ArticleController extends Controller
 {
     function create(){
+        if (session()->has('success')) {
+            $success = session('success');
+        } else {
+            $success = null;
+        }
         $categorie = new Categorie();
-        return view('BO/CreateArticle',['listcategorie'=>$categorie->all()]);
+        return view('BO/CreateArticle',['listcategorie'=>$categorie->all(),'success'=>$success]);
     }
     function save(Request $request){    
         $categorie = new Categorie();    
@@ -35,7 +41,9 @@ class ArticleController extends Controller
             $articlecategorie->idcategorie = $id;
             $articlecategorie->save();
         }
-        return view('BO/CreateArticle',['listcategorie'=>$categorie->all()]);
+        return redirect()
+        ->action('App\Http\Controllers\ArticleController@create')
+        ->with('success', 'Article created successfully.');
     }
     function edit($idarticle){
         $categorie = new Categorie();
@@ -65,8 +73,21 @@ class ArticleController extends Controller
             $article['image'] = $base64;
         }
         Article::find($idarticle)->update($article);
+        // update articlecategorie 
+        $listidcategorie = $request->input('categories', []);
+        Articlecategorie::where("idarticle",$idarticle)->delete();
+        foreach($listidcategorie as $id){
+            $articlecategorie = new Articlecategorie();
+            $articlecategorie->idarticle = $idarticle;
+            $articlecategorie->idcategorie = $id;
+            $articlecategorie->save();
+        }
         // $data = $this->edit($idarticle);
         // $data['success'] = ;
+        $key='fiche-'.$idarticle;
+        if(Cache::has($key)){
+            Cache::forget($key);
+        }
 
         return redirect()
         ->action('App\Http\Controllers\ArticleController@edit',['idarticle'=>$idarticle])

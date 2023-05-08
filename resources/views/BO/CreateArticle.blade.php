@@ -3,8 +3,8 @@
 @section('title', 'ajouter article')
 
 @section('link')
-<link href="{{url('/vendor/ckeditor/contents.css') }}" rel="stylesheet">
-    <script src="{{url('/vendor/ckeditor/ckeditor.js') }}" ></script>    
+<link href="{{url('/ckeditor/contents.css') }}" rel="stylesheet">
+    <script src="{{url('/ckeditor/ckeditor.js') }}" ></script>    
 @endsection
 
 @section('content')
@@ -16,7 +16,12 @@
     <section class="section">
         <div class="row">
             <div class="col-lg-12">
-
+              @if(isset($success))
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <i class="bi bi-check-circle me-1"></i>
+                        {{$success}}
+                    </div>
+                @endif
                 <div class="card">
                   <div class="card-body">
                     <h5 class="card-title"></h5>

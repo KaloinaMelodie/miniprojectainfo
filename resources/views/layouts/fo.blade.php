@@ -18,11 +18,11 @@
 
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CMuli:400,700" rel="stylesheet">
 
-    <link type="text/css" rel="stylesheet" href="{{asset('assetsFO/css/bootstrap.min.css')}}" />
+    <link type="text/css" rel="stylesheet" href="{{url('assetsFO/css/bootstrap.min.css')}}" />
 
-    <link rel="stylesheet" href="{{asset('assetsFO/css/font-awesome.min.css')}}">
+    <link rel="stylesheet" href="{{url('assetsFO/css/font-awesome.min.css')}}">
 
-    <link type="text/css" rel="stylesheet" href="{{asset('assetsFO/css/style.css')}}" />
+    <link type="text/css" rel="stylesheet" href="{{url('assetsFO/css/style.css')}}" />
 
 
     <script
@@ -38,7 +38,7 @@
             <div id="nav-top">
                 <div class="container">
                     <div class="nav-logo">
-                        <a href="#" title="Ainfo" class="logo"><img src="{{asset('assetsFO/img/logo.png')}}" width="200px" height="100px" alt=""></a>
+                        <a href="#" title="Ainfo" class="logo"><img src="{{asset('vendor/assetsFO/img/logo.png')}}" width="200px" height="100px" alt=""></a>
                     </div>
 
 
@@ -111,7 +111,7 @@
                 <div class="footer-widget">
                     <div class="col-md-6">
                         <div class="footer-logo">
-                            <a href="#" class="logo" title="Ainfo"><img src="{{asset('assetsFO/img/logo-alt.png')}}" alt="" height="200"
+                            <a href="#" class="logo" title="Ainfo"><img src="{{asset('vendor/assetsFO/img/logo-alt.png')}}" alt="" height="200"
                                     width="300"></a>
                         </div>
                     </div>
@@ -133,10 +133,10 @@
     </footer>
 
 
-    <script src="{{asset('assetsFO/js/jquery.min.js')}}"></script>
-    <script src="{{asset('assetsFO/js/bootstrap.min.js')}}"></script>
-    <script src="{{asset('assetsFO/js/jquery.stellar.min.js')}}"></script>
-    <script src="{{asset('assetsFO/js/main.js')}}"></script>
+    <script src="{{url('assetsFO/js/jquery.min.js')}}"></script>
+    <script src="{{url('assetsFO/js/bootstrap.min.js')}}"></script>
+    <script src="{{url('assetsFO/js/jquery.stellar.min.js')}}"></script>
+    <script src="{{url('assetsFO/js/main.js')}}"></script>
 
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
     <script>

@@ -7,6 +7,7 @@ use App\Models\Varticlecategorie;
 use App\Models\Article;
 use App\Models\Categorie;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Cache;  
 
 class AinfofoController extends Controller {
     function accueil(Request $request){
@@ -115,12 +116,12 @@ class AinfofoController extends Controller {
                 $vaa->setArticle($voirart);
                 $listnow[] = $vaa;
             }     
-        // $key='fiche-'.$idarticle;
+        $key='fiche-'.$idarticle;
         $view=view('/FO/Article',['article' => $va,'listcategorie'=>$listcategorie, 'voiraussi'=>$listnow])->render();
-        // if(!Cache::has($key)){
-        //     Cache::put($key,$view);
-        // }        
-        // return Cache::get($key);
-        return $view;
+        if(!Cache::has($key)){
+            Cache::put($key,$view);
+        }        
+        return Cache::get($key);
+        // return $view;
     }
 }
