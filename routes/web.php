@@ -23,21 +23,22 @@ use App\Models\MymeType;
 //         if (File::exists($path)) {
 
 Route::middleware('cache.headers:public;max_age=3600;etag')->group(function () {
-    // Route::get('/assetsFO/{any}', function ($mylink) {
-    //     $path = 'vendor/assetsFO/' . $mylink;
-    //     echo $path;
-    //     echo public_path($path);
-    //     // $path = $mylink;
-    //     //$path=str_replace('/','\\',$path);
-    //     if (File::exists($path)) {
-    //         $contentType=(new MymeType())->mime_type($path);
-    //         $response = new Illuminate\Http\Response(File::get($path), 200);
-    //         $response->header('Content-Type', $contentType);
-    //         return $response;
-    //     } else {
-    //         abort(404);
-    //     }
-    // })->where('any', '.*');
+    Route::get('/assetsFO/{any}', function ($mylink) {
+        // $path = '/vendor/' . $request->path();      
+        $path = 'vendor/assetsFO/' . $mylink;  
+        // $path = $mylink;
+        // return public_path($path);
+        // echo public_path($path);
+        //$path=str_replace('/','\\',$path);
+        if (File::exists($path)) {
+            $contentType=(new MymeType())->mime_type(   $path);
+            $response = new Illuminate\Http\Response(File::get( $path), 200);
+            $response->header('Content-Type', $contentType);
+            return $response;
+        } else {
+            abort(404);
+        }
+    })->where('any', '.*');
     // Route::get('/ckeditor/{any}', function ($mylink) {
     //     // $path = '/vendor/' . $request->path();
     //     // $path=str_replace('/','\\',$path);
